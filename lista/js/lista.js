@@ -1,3 +1,8 @@
+/*
+	Lista de usuarios
+*/
+
+// Contiene los elementos de la lista
 var ListaUsuarios = React.createClass({
 	displayName: "ListaUsuarios",
 
@@ -23,6 +28,7 @@ var ListaUsuarios = React.createClass({
 			)
 		);
 	},
+	// Se devuelve un lista que contiene elementos de la lista
 	render: function () {
 		return React.createElement(
 			"ol",
@@ -37,23 +43,26 @@ var AplicacionLista = React.createClass({
 	getInitialState: function () {
 		return { ElementosLista: ["Luis Angel Cruz Benitez", "Javier Hernández Balcazar"], text: '' };
 	},
-
+	// Borra un elemento de la lista
 	EstadoBorrar: function (ElementoAborrar, e) {
+		// Se crean los elementos de la lista
 		var LosElementosLista = this.state.ElementosLista;
 		var indice = LosElementosLista.indexOf(ElementoAborrar);
 		LosElementosLista.splice(indice, 1);
 		this.setState({ ElementosLista: LosElementosLista });
 	},
+	// Agrega el elemento texto a el valor del cual se esta recolectando
 	EstadoCambio: function (e) {
 		this.setState({ text: e.target.value });
 	},
+
 	EstadoSubmit: function (e) {
 		e.preventDefault();
 		var nextElementosLista = this.state.ElementosLista.concat([this.state.text]);
 		var nextText = '';
 		this.setState({ ElementosLista: nextElementosLista, text: nextText });
 	},
-
+	// Devuelve todo el contenido del formulario
 	render: function () {
 		return React.createElement(
 			"div",
@@ -63,6 +72,7 @@ var AplicacionLista = React.createClass({
 				null,
 				"Lista de Usuarios"
 			),
+			"// Los elementos se van a enviar como valores",
 			React.createElement(
 				"form",
 				{ onSubmit: this.EstadoSubmit },
@@ -75,6 +85,7 @@ var AplicacionLista = React.createClass({
 				)
 			),
 			React.createElement("hr", null),
+			"// Se manda a llamar a ListaUsuarios",
 			React.createElement(ListaUsuarios, { ElementosLista: this.state.ElementosLista,
 				EstadoBorrar: this.EstadoBorrar })
 		);
