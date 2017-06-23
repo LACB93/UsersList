@@ -72,7 +72,6 @@ var AplicacionLista = React.createClass({
 				null,
 				"Lista de Usuarios"
 			),
-			"// Los elementos se van a enviar como valores",
 			React.createElement(
 				"form",
 				{ onSubmit: this.EstadoSubmit },
@@ -85,7 +84,6 @@ var AplicacionLista = React.createClass({
 				)
 			),
 			React.createElement("hr", null),
-			"// Se manda a llamar a ListaUsuarios",
 			React.createElement(ListaUsuarios, { ElementosLista: this.state.ElementosLista,
 				EstadoBorrar: this.EstadoBorrar })
 		);

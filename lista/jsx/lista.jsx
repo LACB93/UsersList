@@ -44,13 +44,11 @@ var ListaUsuarios = React.createClass({
 								<div>
 										<h3>Lista de Usuarios</h3>
 
-										// Los elementos se van a enviar como valores
 									<form onSubmit={this.EstadoSubmit} >
 										<input className="form-control" placeholder="Agregar a la lista"  onChange={this.EstadoCambio} value={this.state.text} />
 										<br/><button className="btn btn-primary btn-rounded waves-effect waves-light btn-block">{'Agregar Usuario'}</button>
 									</form>
 									<hr/>
-									// Se manda a llamar a ListaUsuarios
 									<ListaUsuarios ElementosLista={this.state.ElementosLista}
 											EstadoBorrar={this.EstadoBorrar} />
 								</div>
